@@ -1,0 +1,17 @@
+<configuration>
+    <property name="LOGGING_LEVEL" value="${LOG_LEVEL:-TRACE}"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{YYYY-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
+
+    <logger name="io.netty" level="INFO"/>
+
+    <root level="${LOGGING_LEVEL}">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
